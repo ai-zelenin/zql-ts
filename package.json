@@ -1,0 +1,24 @@
+{
+  "name": "zql",
+  "version": "1.0.0",
+  "description": "Resource Query Language JS/TS Query Builder",
+  "main": "index.ts",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ai-zelenin/zql.git"
+  },
+  "keywords": [
+    "zql",
+    "query-builder",
+    "rql"
+  ],
+  "author": "ai.zelenin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ai-zelenin/zql/issues"
+  },
+  "homepage": "https://github.com/ai-zelenin/zql#readme"
+}

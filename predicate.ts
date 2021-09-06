@@ -1,4 +1,16 @@
-import {Operations} from "./syntax";
+export enum Operations {
+    AND = "and",
+    OR = "or",
+    EQ = "eq",
+    NEQ = "neq",
+    GT = "gt",
+    GTE = "gte",
+    LT = "lt",
+    LTE = "lte",
+    IN = "in",
+    LIKE = "like",
+    ILIKE = "ilike",
+}
 
 export class Predicate {
     field: string

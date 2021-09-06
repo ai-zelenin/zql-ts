@@ -1,5 +1,7 @@
-import {Directions} from "./syntax";
-
+export enum Directions {
+    ASC = "asc",
+    DESC = "desc",
+}
 
 export class Order {
     field: string

@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ai-zelenin/zql.git"
+    "url": "git+https://github.com/ai-zelenin/zql-ts.git"
   },
   "keywords": [
     "zql",
@@ -18,7 +18,7 @@
   "author": "ai.zelenin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ai-zelenin/zql/issues"
+    "url": "https://github.com/ai-zelenin/zql-ts/issues"
   },
-  "homepage": "https://github.com/ai-zelenin/zql#readme"
+  "homepage": "https://github.com/ai-zelenin/zql-ts#readme"
 }

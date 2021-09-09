@@ -1,6 +1,6 @@
 {
   "name": "zql",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "Resource Query Language JS/TS Query Builder",
   "main": "index.ts",
   "scripts": {

@@ -96,8 +96,8 @@ export class QueryBuilder {
         return this
     }
 
-    distinct(field: string): QueryBuilder {
-        this.query.distinct = field
+    uniq(field: string): QueryBuilder {
+        this.query.uniq = field
         return this
     }
 

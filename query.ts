@@ -7,7 +7,7 @@ export class Query {
     relations: string[]
     page: number
     per_page: number
-    distinct: string
+    uniq: string
 
     constructor() {
         this.filter = []

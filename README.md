@@ -1,18 +1,20 @@
 # ZQL
 
+#### Usage example
+
 ```ts
 const qb = new QueryBuilder();
 
-qb.eq("id", 17)
-qb.like("name", "%fuck%")
+qb.eq("sex", "male")
 
 const or = qb.or()
-or.gt("age", 18)
-or.lt("age", 60)
+or.like("name", "%lu%")
+or.eq("status", 3)
 
 const and = or.and()
-and.eq("name", "fuck")
-and.eq("age", 33)
+and.gt("age", 18)
+and.lt("age", 60)
+
 
 qb.page(10, 50)
 
@@ -26,41 +28,36 @@ console.log(qb.Build())
   "filter": [
     {
       "op": "eq",
-      "field": "id",
-      "value": 17
-    },
-    {
-      "op": "like",
-      "field": "name",
-      "value": "%fuck%"
+      "field": "sex",
+      "value": "male"
     },
     {
       "op": "or",
       "field": "",
       "value": [
         {
-          "op": "gt",
-          "field": "age",
-          "value": 18
+          "op": "like",
+          "field": "name",
+          "value": "%lu%"
         },
         {
-          "op": "lt",
-          "field": "age",
-          "value": 60
+          "op": "eq",
+          "field": "status",
+          "value": 3
         },
         {
           "op": "and",
           "field": "",
           "value": [
             {
-              "op": "eq",
-              "field": "name",
-              "value": "fuck"
+              "op": "gt",
+              "field": "age",
+              "value": 18
             },
             {
-              "op": "eq",
+              "op": "lt",
               "field": "age",
-              "value": 33
+              "value": 60
             }
           ]
         }

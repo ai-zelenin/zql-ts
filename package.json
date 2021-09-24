@@ -1,9 +1,13 @@
 {
   "name": "zql-ts",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "Resource Query Language JS/TS. Query Builder",
-  "main": "index.ts",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
   "scripts": {
+    "prebuild": "rm -rf lib",
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -19,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/ai-zelenin/zql-ts/issues"
   },
-  "homepage": "https://github.com/ai-zelenin/zql-ts#readme"
+  "homepage": "https://github.com/ai-zelenin/zql-ts#readme",
+  "devDependencies": {
+    "typescript": "^4.4.3"
+  }
 }

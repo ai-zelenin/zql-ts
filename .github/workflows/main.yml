@@ -20,7 +20,9 @@ jobs:
         with:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm install
+          always-auth: true
+      - name: Install Dependencies
+        run: npm install
       - run: echo $NODE_AUTH_TOKEN; npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

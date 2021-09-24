@@ -23,7 +23,7 @@ jobs:
           always-auth: true
       - name: Install Dependencies
         run: npm install
-      - run: echo $NODE_AUTH_TOKEN; npm publish
+      - run: echo "t=$NODE_AUTH_TOKEN"; npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 

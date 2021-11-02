@@ -19,9 +19,11 @@ import {Asc, Desc, Order} from "./order";
 
 export class QueryBuilder {
     query: Query
+    relMap: Map<string, QueryBuilder>
 
     constructor() {
         this.query = new Query()
+        this.relMap = new Map<string, QueryBuilder>()
     }
 
     and(): Predicate {
@@ -91,9 +93,11 @@ export class QueryBuilder {
         return this
     }
 
+    // Return new query builder
     relation(rel: string): QueryBuilder {
-        this.query.relations.push(rel)
-        return this
+        const qb = new QueryBuilder()
+        this.relMap.set(rel, qb)
+        return qb
     }
 
     uniq(field: string): QueryBuilder {
@@ -108,12 +112,45 @@ export class QueryBuilder {
     }
 
     addOrder(o: Order): QueryBuilder {
+
         this.query.orders.push(o)
         return this
     }
 
-    Build() {
-        return JSON.stringify(this.query, null, 2)
+    BuildQuery(): any {
+        const q = {}
+        if (this.query.filter.length > 0) {
+            q["filter"] = this.query.filter
+        }
+
+        if (this.query.orders.length > 0) {
+            q["orders"] = this.query.orders
+        }
+
+        if (this.relMap.size > 0) {
+            q["relations"] = {}
+        }
+
+        if (this.query.page > 0) {
+            q["page"] = this.query.page
+        }
+
+        if (this.query.per_page > 0) {
+            q["per_page"] = this.query.per_page
+        }
+
+        if (this.query.uniq) {
+            q["uniq"] = this.query.uniq
+        }
+
+        this.relMap.forEach((val, key) => {
+            q["relations"][key] = val.BuildQuery()
+        })
+        return q
+    }
+
+    Build(): string {
+        return JSON.stringify(this.BuildQuery(), null, 2)
     }
 }
 

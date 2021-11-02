@@ -4,7 +4,7 @@ import {Order} from "./order";
 export class Query {
     filter: Predicate[]
     orders: Order[]
-    relations: string[]
+    relations: Map<string, Query>
     page: number
     per_page: number
     uniq: string
@@ -12,7 +12,7 @@ export class Query {
     constructor() {
         this.filter = []
         this.orders = []
-        this.relations = []
+        this.relations = new Map<string, Query>()
     }
 }
 

@@ -1,13 +1,14 @@
 {
   "name": "zql-ts",
-  "version": "0.2.2",
+  "version": "0.2.5",
   "description": "Resource Query Language JS/TS. Query Builder",
   "main": "lib/index.js",
   "types": "lib/types/index.d.ts",
   "scripts": {
     "prebuild": "rm -rf lib",
     "build": "tsc",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,13 @@
   },
   "homepage": "https://github.com/ai-zelenin/zql-ts#readme",
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
+    "@types/jest": "^27.0.2",
+    "babel-jest": "^27.3.1",
+    "jest": "^27.3.1",
+    "ts-jest": "^27.0.7",
     "typescript": "^4.4.3"
   }
 }

@@ -4,7 +4,6 @@
 
 ```ts
 const qb = new QueryBuilder();
-
 qb.eq("sex", "male")
 
 const or = qb.or()
@@ -15,12 +14,12 @@ const and = or.and()
 and.gt("age", 18)
 and.lt("age", 60)
 
+qb.relation("feature").eq("status", 4).gt("created_at", new Date("2021-11-02T09:37:32.771Z"))
 
 qb.page(10, 50)
-
 qb.asc("id").desc("created_at")
-
-console.log(qb.Build())
+const queryString = qb.Build()
+console.log(queryString)
 ```
 
 ```json
@@ -74,9 +73,23 @@ console.log(qb.Build())
       "direction": "desc"
     }
   ],
-  "relations": [],
+  "relations": {
+    "feature": {
+      "filter": [
+        {
+          "op": "eq",
+          "field": "status",
+          "value": 4
+        },
+        {
+          "op": "gt",
+          "field": "created_at",
+          "value": "2021-11-02T09:37:32.771Z"
+        }
+      ]
+    }
+  },
   "page": 10,
   "per_page": 50
 }
-
 ```

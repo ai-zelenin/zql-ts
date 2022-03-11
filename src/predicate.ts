@@ -10,6 +10,7 @@ export enum Operations {
     IN = "in",
     LIKE = "like",
     ILIKE = "ilike",
+    OVERLAP = "overlap",
 }
 
 export class Predicate {
@@ -71,6 +72,10 @@ export class Predicate {
         return this.addPredicate(iLike(field, value))
     }
 
+    overlap(field: string, value: any): Predicate {
+        return this.addPredicate(Overlap(field, value))
+    }
+
     addPredicate(p: Predicate): Predicate {
         if (!this.isGroupOp()) {
             throw "can not add this predicate type"
@@ -126,4 +131,8 @@ export function Like(field: string, value: any): Predicate {
 
 export function iLike(field: string, value: any): Predicate {
     return new Predicate(Operations.ILIKE, field, value)
+}
+
+export function Overlap(field: string, value: any): Predicate {
+    return new Predicate(Operations.OVERLAP, field, value)
 }

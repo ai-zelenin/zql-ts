@@ -12,8 +12,9 @@ import {
     Lte,
     In,
     Like,
-    iLike
-} from "./predicate";
+    iLike,
+    Overlap,
+} from './predicate';
 import {Asc, Desc, Order} from "./order";
 
 
@@ -72,6 +73,10 @@ export class QueryBuilder {
 
     iLike(field: string, value: any): QueryBuilder {
         return this.addPredicate(iLike(field, value))
+    }
+
+    overlap(field: string, value: any): QueryBuilder {
+        return this.addPredicate(Overlap(field, value))
     }
 
     asc(field: string): QueryBuilder {

@@ -1,4 +1,5 @@
 import {QueryBuilder} from "../src";
+import {NullSortType} from "../src/order";
 
 const validQuery = `{
   "filter": [
@@ -43,7 +44,8 @@ const validQuery = `{
   "orders": [
     {
       "field": "id",
-      "direction": "asc"
+      "direction": "asc",
+      "null_sort_type": "last"
     },
     {
       "field": "created_at",
@@ -80,7 +82,7 @@ test('basic', () => {
     and.lt("age", 60)
     qb.relation("feature").eq("status", 4).gt("created_at", new Date("2021-11-02T09:37:32.771Z"))
     qb.page(10, 50)
-    qb.asc("id").desc("created_at")
+    qb.asc("id",NullSortType.NullsLast).desc("created_at")
     const queryString = qb.Build()
     console.log(queryString)
     expect(queryString).toEqual(validQuery)

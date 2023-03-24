@@ -1,21 +1,7 @@
 import {Query} from "./query";
 
-import {
-    Predicate,
-    And,
-    Or,
-    Eq,
-    Neq,
-    Gt,
-    Gte,
-    Lt,
-    Lte,
-    In,
-    Like,
-    iLike,
-    Overlap,
-} from './predicate';
-import {Asc, Desc, Order} from "./order";
+import {And, Eq, Gt, Gte, iLike, In, Like, Lt, Lte, Neq, Or, Overlap, Predicate,} from './predicate';
+import {Asc, Desc, NullSortType, Order} from "./order";
 
 
 export class QueryBuilder {
@@ -79,12 +65,12 @@ export class QueryBuilder {
         return this.addPredicate(Overlap(field, value))
     }
 
-    asc(field: string): QueryBuilder {
-        return this.addOrder(Asc(field))
+    asc(field: string, nullSort?: NullSortType): QueryBuilder {
+        return this.addOrder(Asc(field, nullSort))
     }
 
-    desc(field: string): QueryBuilder {
-        return this.addOrder(Desc(field))
+    desc(field: string, nullSort?: NullSortType): QueryBuilder {
+        return this.addOrder(Desc(field, nullSort))
     }
 
     page(page: number, perPage?: number): QueryBuilder {

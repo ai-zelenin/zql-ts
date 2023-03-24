@@ -1,6 +1,6 @@
 {
   "name": "zql-ts",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Resource Query Language JS/TS. Query Builder",
   "main": "lib/index.js",
   "types": "lib/types/index.d.ts",
@@ -29,10 +29,10 @@
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.0",
     "@babel/preset-typescript": "^7.16.0",
-    "@types/jest": "^27.0.2",
+    "@types/jest": "^27.5.2",
     "babel-jest": "^27.3.1",
-    "jest": "^27.3.1",
-    "ts-jest": "^27.0.7",
-    "typescript": "^4.4.3"
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.5",
+    "typescript": "^4.9.5"
   }
 }
